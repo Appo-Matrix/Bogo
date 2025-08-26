@@ -7,7 +7,7 @@ class AppBarThemeStyles {
     backgroundColor: AppColors.white,
     elevation: 0,
     iconTheme: const IconThemeData(color: Colors.black, size: 24),
-    titleTextStyle: AppStyles.poppins(
+    titleTextStyle: BAppStyles.poppins(
       color: AppColors.black,
       fontSize: 18,
       weight: FontWeight.w600,
@@ -19,7 +19,7 @@ class AppBarThemeStyles {
     backgroundColor: AppColors.black,
     elevation: 0,
     iconTheme: const IconThemeData(color: Colors.white, size: 24),
-    titleTextStyle: AppStyles.poppins(
+    titleTextStyle: BAppStyles.poppins(
       color: AppColors.white,
       fontSize: 18,
       weight: FontWeight.w600,

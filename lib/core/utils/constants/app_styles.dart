@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppStyles {
+class BAppStyles {
   // 🔹 Base function
   static TextStyle poppins({
     required Color color,

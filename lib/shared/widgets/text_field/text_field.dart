@@ -28,14 +28,14 @@ class CustomTextField extends StatelessWidget {
       child: TextField(
         controller: controller,
         obscureText: obscureText,
-        style: AppStyles.poppins(
+        style: BAppStyles.poppins(
           color: Colors.white,
           fontSize: 18,
           weight: FontWeight.w400,
         ),
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: AppStyles.poppins(
+          hintStyle: BAppStyles.poppins(
             color: Colors.white.withOpacity(0.5),
             fontSize: 16,
             weight: FontWeight.w400,

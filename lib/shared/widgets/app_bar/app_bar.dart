@@ -43,7 +43,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               if (title != null)
                 Text(
                   title!,
-                  style: AppStyles.poppins(
+                  style: BAppStyles.poppins(
                     color: Colors.white,
                     fontSize: 18,
                     weight: FontWeight.w600,
@@ -67,7 +67,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   onTap: onSkip,
                   child: Text(
                     "Skip →",
-                    style: AppStyles.poppins(
+                    style: BAppStyles.poppins(
                       color: Colors.white,
                       fontSize: 16,
                       weight: FontWeight.w400,
