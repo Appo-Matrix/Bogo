@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'core/utils/common/theme/custom_themes/app_appbar_styles.dart';
+import 'features/auth/screens/sign_in/sign_in_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,12 +15,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Bogo',
       debugShowCheckedModeBanner: false,
-
-      // theme: AppTheme.lightTheme,  // Call from theme class
-      // routerConfig: AppRouter.router,  // Call from rout class
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      themeMode: ThemeMode.system,
+      theme: ThemeData(
+        brightness: Brightness.light,
+        appBarTheme: AppBarThemeStyles.lightAppBarTheme,
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        appBarTheme: AppBarThemeStyles.darkAppBarTheme,
+      ),
+      home: SignInScreen(),
     );
-  }}
+  }
+}
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
