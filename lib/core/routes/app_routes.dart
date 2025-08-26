@@ -13,7 +13,7 @@ import '../services/navigation_service.dart';
 class AppRouter {
   static final GoRouter router = GoRouter(
     navigatorKey: NavigationHelper.navigatorKey,
-    initialLocation: '/splash',
+    initialLocation: '/login',
     routes: [
       GoRoute(
         path: '/splash',
@@ -67,3 +67,12 @@ class AppRouter {
     ],
   );
 }
+
+
+/// ✅ Usage Example of GoRouter
+
+// Navigate using helper
+// NavigationHelper.push("/home");
+//
+// // Back
+// NavigationHelper.pop();
