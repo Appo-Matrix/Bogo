@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/utils/common/common_widgets/custom_app_bar.dart';
 import '../../../../core/utils/constants/app_colors.dart';
 import '../../../../core/utils/constants/app_styles.dart';
-import '../../../../shared/widgets/primary_button/primary_button.dart';
+import '../../../../core/utils/common/common_widgets/primary_button.dart';
 import 'interest_chip.dart';
 
 /// A simple screen to let the user pick multiple interests.
