@@ -17,7 +17,7 @@ class InterestChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // unselected bg: halka green (aapke background ki 15% opacity)
-    final Color unselectedBg = AppColors.background.withOpacity(0.15);
+    final Color unselectedBg = BAppColors.primary;
     // selected bg: screenshot jaisa warm orange
     const Color selectedBg = Color(0xFFF66937);
 
@@ -44,8 +44,8 @@ class InterestChip extends StatelessWidget {
                   label,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: AppStyles.poppins(
-                    color: AppColors.white,
+                  style: BAppStyles.poppins(
+                    color: BAppColors.white,
                     fontSize: 14,
                     weight: FontWeight.w500,
                   ),
@@ -66,7 +66,7 @@ class InterestChip extends StatelessWidget {
                 child: Icon(
                   selected ? Icons.close_rounded : Icons.add_rounded,
                   size: 18,
-                  color: selected ? Colors.black54 : AppColors.primary,
+                  color: selected ? Colors.black54 : BAppColors.primary,
                 ),
               ),
             ],

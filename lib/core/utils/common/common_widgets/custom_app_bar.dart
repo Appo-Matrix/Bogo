@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../core/utils/constants/app_styles.dart';
+
+import '../../constants/app_colors.dart';
+import '../../constants/app_styles.dart';
+
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
@@ -27,6 +30,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
+      surfaceTintColor: BAppColors.white,
       // default back button remove
       titleSpacing: 0,
       title: Row(
@@ -43,7 +47,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               if (title != null)
                 Text(
                   title!,
-                  style: AppStyles.poppins(
+                  style: BAppStyles.poppins(
                     color: Colors.white,
                     fontSize: 18,
                     weight: FontWeight.w600,
@@ -67,7 +71,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   onTap: onSkip,
                   child: Text(
                     "Skip →",
-                    style: AppStyles.poppins(
+                    style: BAppStyles.poppins(
                       color: Colors.white,
                       fontSize: 16,
                       weight: FontWeight.w400,

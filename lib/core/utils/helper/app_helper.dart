@@ -6,7 +6,7 @@ class AppHelper {
   static void showSnackBar(
     BuildContext context,
     String message, {
-    Color backgroundColor = AppColors.primary,
+    Color backgroundColor = BAppColors.primary,
   }) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(message), backgroundColor: backgroundColor),
