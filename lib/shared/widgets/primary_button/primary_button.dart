@@ -13,7 +13,7 @@ class PrimaryButton extends StatelessWidget {
     super.key,
     required this.text,
     required this.onPressed,
-    this.backgroundColor = AppColors.black,
+    this.backgroundColor = BAppColors.black900,
     this.width = double.infinity,
     this.height = 92,
   });

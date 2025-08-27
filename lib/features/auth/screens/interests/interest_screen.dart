@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../../../core/utils/common/common_widgets/custom_app_bar.dart';
 import '../../../../core/utils/constants/app_colors.dart';
 import '../../../../core/utils/constants/app_styles.dart';
-import '../../../../shared/widgets/app_bar/app_bar.dart';
 import '../../../../shared/widgets/primary_button/primary_button.dart';
 import 'interest_chip.dart';
 
@@ -58,7 +58,7 @@ class _InterestScreenState extends State<InterestScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       // Page background color (brand primary)
-      backgroundColor: AppColors.primary,
+      backgroundColor: BAppColors.primary,
 
       // Top bar: back only, no title/logo/notification
       appBar: CustomAppBar(
@@ -84,8 +84,8 @@ class _InterestScreenState extends State<InterestScreen> {
                 // ------- Title -------
                 Text(
                   "What are your interests",
-                  style: AppStyles.poppins(
-                    color: AppColors.white,
+                  style: BAppStyles.poppins(
+                    color: BAppColors.white,
                     fontSize: 25,
                     weight: FontWeight.w600,
                   ),
@@ -128,7 +128,7 @@ class _InterestScreenState extends State<InterestScreen> {
                 // ------- Continue button -------
                 // Hook this up to your next navigation step
                 PrimaryButton(
-                  backgroundColor: AppColors.secondary,
+                  backgroundColor: BAppColors.black1000,
                   text: "Continue",
                   onPressed: () {
                     // TODO: Use _selected where needed (e.g., save or navigate)
