@@ -1,5 +1,7 @@
+import 'package:bogo/features/auth/screens/sign_in/sign_in_screen.dart';
 import 'package:bogo/features/splash/splash_screen.dart';
 import 'package:go_router/go_router.dart';
+import '../../features/auth/screens/sign_up/sign_up.dart';
 import '../services/navigation_service.dart';
 
 class AppRouter {
@@ -13,11 +15,11 @@ class AppRouter {
             NavigationHelper.slideFromRight(const SplashScreen(), state),
       ),
 
-      // GoRoute(
-      //   path: '/login',
-      //   pageBuilder: (context, state) =>
-      //       NavigationHelper.slideFromRight(const LoginScreen(), state),
-      // ),
+      GoRoute(
+        path: '/signUp',
+        pageBuilder: (context, state) =>
+            NavigationHelper.slideFromRight(const SignUpScreen(), state),
+      ),
     ],
   );
 }

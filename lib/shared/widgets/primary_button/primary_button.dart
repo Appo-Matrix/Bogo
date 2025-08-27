@@ -9,6 +9,11 @@ class PrimaryButton extends StatelessWidget {
   final double width;
   final double height;
 
+  /// ✅ New properties for border
+  final bool hasBorder;
+  final Color borderColor;
+  final double borderWidth;
+
   const PrimaryButton({
     super.key,
     required this.text,
@@ -16,19 +21,27 @@ class PrimaryButton extends StatelessWidget {
     this.backgroundColor = AppColors.black,
     this.width = double.infinity,
     this.height = 92,
+
+    /// Default border OFF
+    this.hasBorder = false,
+    this.borderColor = Colors.white,
+    this.borderWidth = 2.0,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width,   //  ab custom width
-      height: height, //  ab custom height
+      width: width,   // custom width
+      height: height, // custom height
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(46),
+            side: hasBorder
+                ? BorderSide(color: borderColor, width: borderWidth) // ✅ Show border
+                : BorderSide.none, // ✅ No border
           ),
         ),
         child: Text(

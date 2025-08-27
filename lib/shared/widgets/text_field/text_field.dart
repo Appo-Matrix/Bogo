@@ -4,7 +4,8 @@ import '../../../core/utils/constants/app_styles.dart';
 
 class CustomTextField extends StatelessWidget {
   final String hintText;
-  final IconData icon;
+  final IconData? icon; // Optional IconData
+  final Widget? svgIcon; // Optional SVG or any Widget
   final TextEditingController? controller;
   final bool obscureText;
   final double width;
@@ -13,11 +14,12 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
     required this.hintText,
-    required this.icon,
+    this.icon,
+    this.svgIcon,
     this.controller,
     this.obscureText = false,
     this.width = double.infinity,
-    this.height = 92,
+    this.height = 82,
   });
 
   @override
@@ -41,20 +43,30 @@ class CustomTextField extends StatelessWidget {
             weight: FontWeight.w400,
           ),
           filled: true,
-          fillColor: const Color(0xFFD9D9D9).withOpacity(0.15), //  D9D9D9 15%
-          prefixIcon: Icon(icon, color: Colors.white, size: 29),
+          fillColor: const Color(0xFFD9D9D9).withOpacity(0.15),
+          prefixIcon: (icon != null || svgIcon != null)
+              ? Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: svgIcon ??
+                Icon(
+                  icon,
+                  color: Colors.white,
+                  size: 29,
+                ),
+          )
+              : null,
           contentPadding: const EdgeInsets.symmetric(vertical: 25),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(35), //  radius 35
+            borderRadius: BorderRadius.circular(35),
             borderSide: BorderSide(
-              color: Colors.white.withOpacity(0.5), // stroke FFFFFF 50%
+              color: Colors.white.withOpacity(0.5),
               width: 1.5,
             ),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(35),
-            borderSide: BorderSide(
-              color: AppColors.white, // 🔹 Focus pe primary highlight
+            borderSide: const BorderSide(
+              color: AppColors.white,
               width: 2,
             ),
           ),
