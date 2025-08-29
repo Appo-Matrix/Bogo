@@ -1,3 +1,4 @@
+import 'package:bogo/features/splash/splash_screen.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/auth/interests/interest_screen.dart';
 import '../../features/auth/otp/otp_screen.dart';
