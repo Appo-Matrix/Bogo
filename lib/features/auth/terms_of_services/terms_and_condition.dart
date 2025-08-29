@@ -6,6 +6,7 @@ import '../../../../core/utils/constants/app_colors.dart';
 import '../../../../core/utils/constants/app_sizes.dart';
 import '../../../../core/utils/constants/app_strings.dart';
 import '../../../../core/utils/constants/app_styles.dart';
+import '../screens/otp/otp_verification_screen.dart';
 
 class TermsAndCondition extends StatefulWidget {
   const TermsAndCondition({super.key});
@@ -121,9 +122,15 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                           PrimaryButton(
                             text: "Accept & Continue",
                             onPressed: () {
-                              context.push('/register-complete');
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const OtpVerificationScreen(),
+                                ),
+                              );
                             },
                           ),
+
                           const SizedBox(height: 18),
                         ],
                       ),
