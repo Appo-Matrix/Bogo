@@ -13,8 +13,8 @@ import 'custom_themes/text_theme.dart';
 
 
 
-class JAppTheme {
-  JAppTheme._();
+class BAppTheme {
+  BAppTheme._();
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     disabledColor: BAppColors.black700,

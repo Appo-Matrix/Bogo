@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../constants/app_colors.dart';
 import '../../constants/app_styles.dart';
 
@@ -56,14 +55,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ],
           ),
 
-          // 🔹 Center
+          // Center
           if (showLogo)
             Image.asset(
               "assets/logo.png", //  Apka bogo logo
               height: 40,
             ),
 
-          // 🔹 Right Side
+          // Right Side
           Row(
             children: [
               if (showSkip)

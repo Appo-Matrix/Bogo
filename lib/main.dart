@@ -1,10 +1,28 @@
-import 'package:bogo/features/splash/splash_screen.dart';
+import 'package:bogo/theme/themes.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'core/routes/app_routes.dart';
-import 'features/auth/screens/sign_in/sign_in_screen.dart';
+import 'features/auth/screens/sign_up/provider/date_provider.dart';
+import 'features/auth/screens/sign_up/provider/radio_button_provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) {
+            return RadioButtonProvider();
+          },
+        ),
+        ChangeNotifierProvider(
+          create: (_) {
+            return DateProvider();
+          },
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -17,12 +35,8 @@ class MyApp extends StatelessWidget {
       title: 'Bogo',
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
-      theme: ThemeData(
-        brightness: Brightness.light,
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-      ),
+      theme: BAppTheme.lightTheme,
+      darkTheme: BAppTheme.darkTheme,
 
       routerConfig: AppRouter.router,
     );

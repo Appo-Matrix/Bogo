@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../../../core/utils/constants/app_colors.dart';
-import '../../../../core/utils/constants/app_styles.dart';
-import 'dart:ui';
-/// Single pressable pill. Press par color + icon change hota hai.
+import '../../../../../core/utils/constants/app_colors.dart';
+import '../../../../../core/utils/constants/app_styles.dart';
+
 class InterestChip extends StatelessWidget {
   const InterestChip({
+    super.key,
     required this.label,
     required this.selected,
     required this.onTap,
@@ -16,9 +16,7 @@ class InterestChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // unselected bg: halka green (aapke background ki 15% opacity)
     final Color unselectedBg = BAppColors.primary;
-    // selected bg: screenshot jaisa warm orange
     const Color selectedBg = Color(0xFFF66937);
 
     return Material(

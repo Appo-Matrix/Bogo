@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+
+
 
 class BSizes {
   // Paddings and margin sizes
@@ -22,6 +25,8 @@ class BSizes {
   static const double fontSizeMd = 16.0;
   static const double fontSizeLg = 18.0;
   static const double fontSizeLgx = 24.0;
+  static const double fontSizeLhx = 30.0;
+  static const double fontSizeLIx = 50.0;
 
   // Button Sizes
   static const double buttonHeight = 18.0;
@@ -62,9 +67,6 @@ class BSizes {
   // Image carousal height
   static const double imageCarouselHeight = 200.0;
 
-  // Loading Indicator Size
-  static const double loadingIndicatorSize = 36.0;
-
-  // Gridview spacing
-  static const double gridViewSpacing = 16.0;
+  static double screenHeight(BuildContext context) =>
+      MediaQuery.of(context).size.height;
 }
