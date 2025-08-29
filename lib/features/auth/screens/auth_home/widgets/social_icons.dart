@@ -15,8 +15,6 @@ class SocialLoginButton extends StatelessWidget {
   final VoidCallback onTap;
   final Axis layout;
   final EdgeInsetsGeometry contentPadding;
-
-  /// 👇 Naya property sirf is button ka text 2 line pe allow karne ke liye
   final bool allowMultilineText;
 
   const SocialLoginButton({
@@ -32,11 +30,27 @@ class SocialLoginButton extends StatelessWidget {
     required this.onTap,
     this.layout = Axis.vertical,
     this.contentPadding = const EdgeInsets.all(0),
-    this.allowMultilineText = false, // default single line
+    this.allowMultilineText = false,
   });
 
   @override
   Widget build(BuildContext context) {
+    final isSvg = iconPath.toLowerCase().endsWith('.svg');
+
+    Widget iconWidget = isSvg
+        ? SvgPicture.asset(
+      iconPath,
+      width: iconSize,
+      height: iconSize,
+      color: textColor,
+    )
+        : Image.asset(
+      iconPath,
+      width: iconSize,
+      height: iconSize,
+      color: textColor, // optional, works only if image is monochrome
+    );
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -55,12 +69,7 @@ class SocialLoginButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SvgPicture.asset(
-                iconPath,
-                width: iconSize,
-                height: iconSize,
-                color: textColor,
-              ),
+              iconWidget,
               const SizedBox(height: 12),
               Text(
                 text,
@@ -71,7 +80,7 @@ class SocialLoginButton extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
                 softWrap: true,
-                maxLines: allowMultilineText ? 2 : 1, // 👈 control
+                maxLines: allowMultilineText ? 2 : 1,
                 overflow: TextOverflow.visible,
               ),
             ],
@@ -79,12 +88,7 @@ class SocialLoginButton extends StatelessWidget {
               : Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SvgPicture.asset(
-                iconPath,
-                width: iconSize,
-                height: iconSize,
-                color: textColor,
-              ),
+              iconWidget,
               const SizedBox(width: 12),
               Expanded(
                 child: Text(

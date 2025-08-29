@@ -17,6 +17,8 @@ class SocialButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isSvg = iconPath.toLowerCase().endsWith(".svg");
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -27,7 +29,14 @@ class SocialButton extends StatelessWidget {
           color: color,
         ),
         child: Center(
-          child: SvgPicture.asset(
+          child: isSvg
+              ? SvgPicture.asset(
+            iconPath,
+            width: 28,
+            height: 28,
+            color: Colors.white,
+          )
+              : Image.asset(
             iconPath,
             width: 28,
             height: 28,

@@ -33,7 +33,7 @@ class PrimaryButton extends StatelessWidget {
         onPressed: onPressed,
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(
-            backgroundColor ?? Colors.transparent,
+            backgroundColor ?? Colors.black,
           ),
           foregroundColor: MaterialStateProperty.all(Colors.white),
           overlayColor: MaterialStateProperty.all(Colors.transparent),
@@ -47,7 +47,7 @@ class PrimaryButton extends StatelessWidget {
           ),
 
           shape: MaterialStateProperty.all(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(46)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
           ),
         ),
         child: Text(
@@ -56,7 +56,7 @@ class PrimaryButton extends StatelessWidget {
           style: BAppStyles.poppins(
             color: Colors.white,
             fontSize: BSizes.lg,
-            weight: FontWeight.w600,
+            weight: FontWeight.w400,
           ),
         ),
       ),

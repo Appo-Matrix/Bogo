@@ -1,12 +1,14 @@
+
 import 'package:flutter/material.dart';
+
 import '../../constants/app_colors.dart';
 import '../../constants/app_sizes.dart';
 import '../../constants/app_styles.dart';
 
 class CustomTextField extends StatelessWidget {
   final String hintText;
-  final IconData? icon; // Optional IconData
-  final Widget? svgIcon; // Optional SVG or any Widget
+  final IconData? icon;
+  final Widget? svgIcon;
   final TextEditingController? controller;
   final bool obscureText;
   final double width;
@@ -20,14 +22,14 @@ class CustomTextField extends StatelessWidget {
     this.controller,
     this.obscureText = false,
     this.width = double.infinity,
-    this.height = 92,
+    this.height = 92, // 👈 default 92
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: width,
-      height: height,
+      height: height, // 👈 now the field will take your height
       child: TextField(
         controller: controller,
         obscureText: obscureText,
@@ -52,20 +54,20 @@ class CustomTextField extends StatelessWidget {
                 Icon(
                   icon,
                   color: Colors.white,
-                  size: 29,
+                  size: BSizes.iconMd,
                 ),
           )
               : null,
           contentPadding: const EdgeInsets.symmetric(vertical: 25),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(35),
+            borderRadius: BorderRadius.circular(30),
             borderSide: BorderSide(
               color: Colors.white.withOpacity(0.5),
               width: 1.5,
             ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(35),
+            borderRadius: BorderRadius.circular(30),
             borderSide: const BorderSide(
               color: BAppColors.white,
               width: 2,

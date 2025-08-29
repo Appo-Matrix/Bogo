@@ -3,13 +3,14 @@ class AppStrings {
 
   // Authentication
   static const String createYourAccount = "Let's You in";
+  static const String signinText = "Create your Account";
   static const String yourPhoneNumber = "Your phone number";
   static const String password = "Password";
   static const String loginTitle = "Login to your account";
   static const String emailHint = "Enter your email";
   static const String passwordHint = "Enter your password";
   static const String signInButton = "SignUp";
-  static const String logInButton = "SignIn";
+  static const String logInButton = "Sign In";
   static const String rememberMe = "Remember me";
   static const String forgot = "forgot my password";
   static const String myPassword = "forgot my password";
@@ -22,7 +23,7 @@ class AppStrings {
   static const String termsAndCondition = "By logging in or registering, you agree to the";
   static const String privacyPolicy = "Privacy Policy";
   static const String facebook = "Continue with facebook";
-  static const String apple = "Continue with facebook";
+  static const String apple = "Continue with Apple";
   static const String google = "Continue with facebook";
 
 

@@ -20,7 +20,7 @@ class RadioButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 92,
-      width: 184,
+      width: 164,
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.15),
         border: Border.all(color: Colors.white.withOpacity(0.5), width: 1.5),

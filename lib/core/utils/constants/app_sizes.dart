@@ -26,7 +26,7 @@ class BSizes {
   static const double fontSizeLg = 18.0;
   static const double fontSizeLgx = 24.0;
   static const double fontSizeLhx = 30.0;
-  static const double fontSizeLIx = 50.0;
+  static const double fontSizeLIx = 44.0;
 
   // Button Sizes
   static const double buttonHeight = 18.0;

@@ -15,16 +15,7 @@ class _OtpScreenState extends State<OtpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      appBar: CustomAppBar(
-        showBack: true,
-        showSkip: false,
-        showLogo: false,
-        showNotification: false,
-        onBack: () {
-          Navigator.pop(context);
-        },
-        onSkip: () {},
-      ),
+
 
       body:Column(
         children: [

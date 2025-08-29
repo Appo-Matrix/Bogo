@@ -4,9 +4,13 @@ import '../../../../core/utils/common/common_widgets/primary_button.dart';
 import '../../../../core/utils/common/common_widgets/text_field.dart';
 import '../../../../core/utils/constants/app_assets.dart';
 import '../../../../core/utils/constants/app_colors.dart';
+import '../../../../core/utils/constants/app_sizes.dart';
 import '../../../../core/utils/constants/app_strings.dart';
 import '../../../../core/utils/constants/app_styles.dart';
+import '../../rgister_complete/register_complete_screen.dart';
+import '../../terms_of_services/terms_and_condition.dart';
 import '../auth_home/widgets/social_icon_widget.dart';
+import '../sign_up/sign_up_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -23,10 +27,11 @@ class _SignInScreenState extends State<SignInScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            /// Top logo + corner
             Stack(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 157.0),
+                  padding: const EdgeInsets.only(left: 180.0),
                   child: Image(
                     alignment: Alignment.topRight,
                     image: AssetImage(AppAssets.cornerImage),
@@ -35,18 +40,18 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                 ),
                 Positioned(
-                  left: 120,
-                  top: 90,
+                  left: 130,
+                  top: 80,
                   child: Center(
                     child: Image.asset(
                       AppAssets.signInLogo,
-                      width: 42,
-                      height: 42,
+                      width: 120,
+                      height: 120,
                     ),
                   ),
                 ),
                 Positioned(
-                  left: 60,
+                  left: 70,
                   top: 138,
                   child: Container(
                     width: 46,
@@ -60,81 +65,58 @@ class _SignInScreenState extends State<SignInScreen> {
               ],
             ),
 
+            /// Form section
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 14.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  /// Title
                   Text(
-                    AppStrings.createYourAccount,
+                    AppStrings.signinText,
                     style: BAppStyles.poppins(
                       color: BAppColors.white,
-                      fontSize: 44,
+                      fontSize: BSizes.fontSizeLIx,
                       weight: FontWeight.w700,
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 27),
+                  SizedBox(height: BSizes.spaceBtwSections),
 
+                  /// Phone number field
                   CustomTextField(
                     hintText: AppStrings.yourPhoneNumber,
                     svgIcon: SvgPicture.asset(AppAssets.person),
                   ),
+        SizedBox(height:BSizes.spaceBtwInputFields ,),
+                  /// Password field
                   CustomTextField(
                     hintText: AppStrings.password,
                     svgIcon: SvgPicture.asset(AppAssets.lock),
                   ),
 
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                    child: Row(
-                      children: [
-                        Text(
-                          AppStrings.rememberMe,
-                          style: BAppStyles.poppins(
-                            color: BAppColors.white,
-                            fontSize: 14,
-                            weight: FontWeight.w400,
-                          ),
-                        ),
-                        Spacer(),
-                        Text(
-                          AppStrings.forgot,
-                          style: BAppStyles.poppins(
-                            color: BAppColors.error400,
-                            fontSize: 12,
-                            weight: FontWeight.w600,
-                          ),
-                        ),
-                        SizedBox(width: 4),
-                        Text(
-                          AppStrings.myPassword,
-                          style: BAppStyles.poppins(
-                            color: BAppColors.white,
-                            fontSize: 12,
-                            weight: FontWeight.w600,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 25),
+                  /// Remember Me + Forgot
+                  const LoginOptionsRow(),
 
-                  // signup button
+                  const SizedBox(height: BSizes.spaceBtwItems),
+
+                  /// Sign In button
                   PrimaryButton(
                     text: AppStrings.signInButton,
-                    onPressed: () {},
+                    onPressed: () {
+                      // Handle sign in
+                    },
                   ),
 
-                  // social icons
-                  SizedBox(height: 18),
+                  const SizedBox(height: BSizes.spaceBtwItems),
 
+                  /// Social login row
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Expanded(
                         child: SocialButton(
-                          color: BAppColors.primary,
+                          color: BAppColors.facebookContainarColor,
                           iconPath: AppAssets.facebookIcon,
                           onTap: () {},
                         ),
@@ -152,49 +134,72 @@ class _SignInScreenState extends State<SignInScreen> {
                         child: SocialButton(
                           color: BAppColors.black1000,
                           iconPath: AppAssets.iphoneIcon,
-
                           onTap: () {},
                         ),
                       ),
                     ],
                   ),
 
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
 
-                  //
-                  Container(
-                    width: double.infinity,
-                    height: 42,
-                    decoration: BoxDecoration(
-                      color: BAppColors.white.withOpacity(0.15),
-                      borderRadius: BorderRadius.circular(18),
-                    ),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 14.0),
-                          child: Text(
-                            AppStrings.alreadyHaveAnAccount,
-                            style: BAppStyles.poppins(
-                              color: BAppColors.white,
-                              fontSize: 16,
-                              weight: FontWeight.w400,
+                  /// Already have account row
+                Container(
+                  width: double.infinity,
+                  height: 42,
+                  decoration: BoxDecoration(
+                    color: BAppColors.white.withOpacity(0.15),
+                    borderRadius: BorderRadius.circular(18),
+                  ),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 14.0),
+                        child: Text(
+                          AppStrings.alreadyHaveAnAccount,
+                          style: BAppStyles.poppins(
+                            color: BAppColors.white,
+                            fontSize: 16,
+                            weight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 18),
+
+                      /// 👉 Custom inline button
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SignUpScreen(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            height: 42, // match parent container height
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: BAppColors.black1000, // button background
+                              borderRadius: BorderRadius.circular(14),
+                            ),
+                            child: Text(
+                              AppStrings.logInButton,
+                              style: BAppStyles.poppins(
+                                color: Colors.white,
+                                fontSize: 14,
+                                weight: FontWeight.w600,
+                              ),
                             ),
                           ),
                         ),
-                        SizedBox(width: 13),
-                        Expanded(
-                          child: PrimaryButton(
-                            width: 177,
-                            height: 42,
-                            text: AppStrings.signInButton,
-                            onPressed: () {},
-                          ),
-                        ),
-                      ],
-                    ),
+
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 25),
+                ),
+
+                const SizedBox(height: 25),
                 ],
               ),
             ),
@@ -204,3 +209,62 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 }
+
+/// ✅ Login Options Row with Checkbox
+class LoginOptionsRow extends StatefulWidget {
+  const LoginOptionsRow({super.key});
+
+  @override
+  State<LoginOptionsRow> createState() => _LoginOptionsRowState();
+}
+
+class _LoginOptionsRowState extends State<LoginOptionsRow> {
+  bool rememberMe = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12.0),
+      child: Row(
+        children: [
+          Switch(
+            value: rememberMe,
+            onChanged: (value) {
+              setState(() {
+                rememberMe = value;
+              });
+            },
+            activeColor: BAppColors.primary, // dot color when ON
+            activeTrackColor: BAppColors.white, // track color when ON
+            inactiveThumbColor: BAppColors.white, // dot color when OFF
+            inactiveTrackColor:  BAppColors.white.withOpacity(0.2), // track color when OFF
+            trackOutlineColor: MaterialStateProperty.all(BAppColors.lightGray300), // 👈 border color
+          ),
+          Text(
+            AppStrings.rememberMe,
+            style: BAppStyles.poppins(
+              color: BAppColors.white,
+              fontSize: 14,
+              weight: FontWeight.w400,
+            ),
+          ),
+          const Spacer(),
+          GestureDetector(
+            onTap: () {
+              // Handle forgot password tap
+            },
+            child: Text(
+              AppStrings.forgot,
+              style: BAppStyles.poppins(
+                color: BAppColors.error700,
+                fontSize: 12,
+                weight: FontWeight.w600,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
