@@ -46,102 +46,77 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
 
     return Scaffold(
       backgroundColor: BAppColors.primary,
-
-      body: Stack(
-        children: [
-          /// 🌟 Background Decorations
-          Positioned(
-            left: 210,
-            child: Image.asset(
-              AppAssets.cornerImage,
-              width: 200,
-              height: 200,
-            ),
-          ),
-          Positioned(
-            left: 70,
-            top: 138,
-            child: Container(
-              width: 46,
-              height: 46,
-              decoration: BoxDecoration(
-                color: BAppColors.white.withOpacity(0.2),
-                shape: BoxShape.circle,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Back Button
+              IconButton(
+                icon: const Icon(Icons.arrow_back, color: Colors.white),
+                onPressed: () => Navigator.pop(context),
               ),
-            ),
-          ),
 
-          /// 🌟 Scrollable Content
-          SafeArea(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                /// ✅ Back Button
-                IconButton(
-                  icon: const Icon(Icons.arrow_back, color: Colors.white),
-                  onPressed: () => context.pop(),
-                ),
-
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          /// Title
-                          Padding(
-                            padding: const EdgeInsets.only(top: 40),
-                            child: Center(
-                              child: Text(
-                                AppStrings.termsTitle,
-                                style: BAppStyles.poppins(
-                                  color: BAppColors.white,
-                                  fontSize: BSizes.fontSizeLhx,
-                                  weight: FontWeight.w600,
-                                ),
-                              ),
+              // Scrollable Content
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Title
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20),
+                        child: Center(
+                          child: Text(
+                            AppStrings.termsTitle,
+                            style: BAppStyles.poppins(
+                              color: BAppColors.white,
+                              fontSize: BSizes.fontSizeLhx,
+                              weight: FontWeight.w600,
                             ),
                           ),
-                          SizedBox(height: BSizes.md),
-
-                          /// Terms Sections
-                          ..._buildSection(AppStrings.heading1, AppStrings.subText1),
-                          ..._buildSection(AppStrings.heading2, AppStrings.subText2),
-                          ..._buildSection(AppStrings.heading3, AppStrings.subText3),
-                          ..._buildSection(AppStrings.heading4, AppStrings.subText4),
-                          ..._buildSection(AppStrings.heading5, AppStrings.subText5),
-                          ..._buildSection(AppStrings.heading6, AppStrings.subText6),
-                          ..._buildSection(AppStrings.heading7, AppStrings.subText7),
-                          ..._buildSection(AppStrings.heading8, AppStrings.subText8),
-                          ..._buildSection(AppStrings.heading9, AppStrings.subText9),
-
-                          SizedBox(height: screenHeight * 0.08),
-
-                          /// Continue Button
-                          PrimaryButton(
-                            text: "Accept & Continue",
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const OtpVerificationScreen(),
-                                ),
-                              );
-                            },
-                          ),
-
-                          const SizedBox(height: 18),
-                        ],
+                        ),
                       ),
-                    ),
+
+                      SizedBox(height: BSizes.md),
+
+                      // Terms Sections
+                      ..._buildSection(AppStrings.heading1, AppStrings.subText1),
+                      ..._buildSection(AppStrings.heading2, AppStrings.subText2),
+                      ..._buildSection(AppStrings.heading3, AppStrings.subText3),
+                      ..._buildSection(AppStrings.heading4, AppStrings.subText4),
+                      ..._buildSection(AppStrings.heading5, AppStrings.subText5),
+                      ..._buildSection(AppStrings.heading6, AppStrings.subText6),
+                      ..._buildSection(AppStrings.heading7, AppStrings.subText7),
+                      ..._buildSection(AppStrings.heading8, AppStrings.subText8),
+                      ..._buildSection(AppStrings.heading9, AppStrings.subText9),
+
+                      SizedBox(height: screenHeight * 0.08),
+
+                      // Continue Button
+                      PrimaryButton(
+                        text: "Accept & Continue",
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const OtpVerificationScreen(),
+                            ),
+                          );
+                        },
+                      ),
+
+                      const SizedBox(height: 18),
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
 }
+

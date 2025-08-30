@@ -25,44 +25,20 @@ class _SignInScreenState extends State<SignInScreen> {
     return Scaffold(
       backgroundColor: BAppColors.primary,
       body: SingleChildScrollView(
+
         child: Column(
           children: [
             /// Top logo + corner
-            Stack(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 180.0),
-                  child: Image(
-                    alignment: Alignment.topRight,
-                    image: AssetImage(AppAssets.cornerImage),
-                    width: 200,
-                    height: 200,
-                  ),
+            Padding(
+              padding: const EdgeInsets.only(top: 40),
+              child: Center(
+
+                child: Image.asset(
+                  AppAssets.signInLogo,
+                  width: 120,
+                  height: 120,
                 ),
-                Positioned(
-                  left: 130,
-                  top: 80,
-                  child: Center(
-                    child: Image.asset(
-                      AppAssets.signInLogo,
-                      width: 120,
-                      height: 120,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 70,
-                  top: 138,
-                  child: Container(
-                    width: 46,
-                    height: 46,
-                    decoration: BoxDecoration(
-                      color: BAppColors.white.withOpacity(0.2),
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
 
             /// Form section
@@ -152,14 +128,18 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   child: Row(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 14.0),
-                        child: Text(
-                          AppStrings.alreadyHaveAnAccount,
-                          style: BAppStyles.poppins(
-                            color: BAppColors.white,
-                            fontSize: 16,
-                            weight: FontWeight.w400,
+                      GestureDetector(
+                        child: Container(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 14.0),
+                            child: Text(
+                              AppStrings.alreadyHaveAnAccount,
+                              style: BAppStyles.poppins(
+                                color: BAppColors.white,
+                                fontSize: 16,
+                                weight: FontWeight.w400,
+                              ),
+                            ),
                           ),
                         ),
                       ),

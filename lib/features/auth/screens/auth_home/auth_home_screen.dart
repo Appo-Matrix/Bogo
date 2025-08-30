@@ -37,32 +37,18 @@ class _AuthHomeScreenState extends State<AuthHomeScreen> {
               child: IntrinsicHeight(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     /// Top logo + corner
-                    Stack(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 280.0),
-                          child: Image.asset(
-                            AppAssets.cornerImage,
-                            alignment: Alignment.topRight,
-                            width: 150,
-                            height: 150,
-                          ),
+                    Positioned(
+                      top: 50,
+                      child: Center(
+                        child: Image.asset(
+                          AppAssets.signInLogo,
+                          width: 150,
+                          height: 150,
                         ),
-                        Positioned(
-                          top: 80,
-                          left: 125,
-                          bottom: 0,
-                          child: Center(
-                            child: Image.asset(
-                              AppAssets.signInLogo,
-                              width: 150,
-                              height: 150,
-                            ),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
 
                     const SizedBox(height:BSizes.spaceBtwSections),
