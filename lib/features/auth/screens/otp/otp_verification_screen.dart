@@ -5,6 +5,7 @@ import '../../../../core/utils/constants/app_assets.dart';
 import '../../../../core/utils/constants/app_colors.dart';
 import '../../../../core/utils/constants/app_sizes.dart';
 import '../../../../core/utils/constants/app_styles.dart';
+import '../../interests/interest_screen.dart';
 import '../../rgister_complete/register_complete_screen.dart';
 
 class OtpVerificationScreen extends StatefulWidget {
@@ -22,64 +23,37 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: BAppColors.backGroundColor,
       body: SafeArea(
-        child: Stack(
-          children: [
-            // ✅ Background decorations
-            Positioned(
-              right: -34,
-              child: Image.asset(
-                AppAssets.cornerImage,
-                width: 200,
-                height: 200,
-              ),
-            ),
-
-            Align(
-              alignment: Alignment.topCenter,
-              child: Padding(
-                padding: const EdgeInsets.only(top: 60),
-                child: CircleAvatar(
-                  radius: 74,
-                  backgroundImage: AssetImage(AppAssets.profile),
-                ),
-              ),
-            ),
-
-            Positioned(
-              left: 70,
-              top: 138,
-              child: Container(
-                width: 46,
-                height: 46,
-                decoration: BoxDecoration(
-                  color: BAppColors.white.withOpacity(0.2),
-                  shape: BoxShape.circle,
-                ),
-              ),
-            ),
-
-            // ✅ Back Button (top-left corner)
-            Positioned(
-              top: 16,
-              left: 16,
-              child: IconButton(
-                icon: const Icon(Icons.arrow_back, color: Colors.white, size: 28),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ),
-
-            // ✅ Foreground content
-            Padding(
+        child: SingleChildScrollView(
+          child: SizedBox(
+            height: screenHeight - MediaQuery.of(context).padding.top,
+            child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 220), // push content below avatar
+                  // Back Button
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: IconButton(
+                      icon: const Icon(Icons.arrow_back, color: Colors.white, size: 28),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+
+                  // Profile Avatar
+                  CircleAvatar(
+                    radius: 74,
+                    backgroundImage: AssetImage(AppAssets.profile),
+                  ),
+                  const SizedBox(height: 40),
 
                   // Title
                   Text(
@@ -145,6 +119,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                     }),
                   ),
 
+                  // Spacer pushes the button to the bottom
                   const Spacer(),
 
                   // Continue Button
@@ -154,7 +129,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const RegisterCompleteScreen(),
+                          builder: (context) => const InterestScreen(),
                         ),
                       );
                     },
@@ -163,7 +138,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                 ],
               ),
             ),
-          ],
+          ),
         ),
       ),
     );
